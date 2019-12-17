@@ -17,3 +17,49 @@ html, body {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* Navigation */
+.nav__wrapper {
+    background: linear-gradient(to right, #095f00, #098b00);
+}
+
+.nav {
+    height: 60px;
+}
+
+.nav .nav__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    height: 100%;
+}
+
+.nav .nav__list-item {
+    height: 100%;
+}
+
+.nav .nav__list-item:first-child {
+    margin-right: auto;
+}
+
+.nav .nav__link {
+    font-family: 'Fredoka One', cursive;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: #ffffff;
+    padding: 0 1rem;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Footer */
+
+.footer {
+    background-color: #555555;
+    color: #ffffff;
+    padding:1rem 0;
+}

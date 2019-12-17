@@ -2,18 +2,29 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 
-<nav th:fragment="nav_menu(page)" id="nav_menu">
-    <ul>
-        <li><a th:href="@{~/index}"th:class="${(page=='index')?'active':''}">Home</a></li>
-        <li><a th:href="@{~/about}"th:class="${(page=='about')?'active':''}">About</a></li>
-        <li><a th:href="@{~/cart}"th:class="${(page=='cart')?'active':''}">Cart</a></li>
-        <li><a th:href="@{~/login}"th:class="${(page=='login')?'active':''}">Login</a></li>
+<div class="nav__wrapper" th:fragment="nav_menu(page)" id="nav_menu">
 
-    </ul>
-</nav>
+    <div class="container">
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__list-item"><a th:href="@{~/index}"th:class="${(page=='index')?'active nav\_\_link':'nav\_\_link'}">Home</a></li>
+                <li class="nav__list-item"><a th:href="@{~/about}"th:class="${(page=='about')?'active nav\_\_link':'nav\_\_link'}">About</a></li>
+                <li class="nav__list-item"><a th:href="@{~/cart}"th:class="${(page=='cart')?'active nav\_\_link':'nav\_\_link'}">Cart</a></li>
+                <li class="nav__list-item"><a th:href="@{~/login}"th:class="${(page=='login')?'active nav\_\_link':'nav\_\_link'}">Login</a></li>
+            </ul>
+        </nav>
+    </div>
 
-<footer th:fragment="footer">
-    <p>&copy; Tim&amp;Jeffrey</p>
-</footer>
+</div>
+
+<div class="container">
+
+    <footer class="footer" th:fragment="footer">
+        <div class="container">
+            <p>&copy; Tim&amp;Jeffrey</p>
+        </div>
+    </footer>
+
+</div>
 
 </html>
