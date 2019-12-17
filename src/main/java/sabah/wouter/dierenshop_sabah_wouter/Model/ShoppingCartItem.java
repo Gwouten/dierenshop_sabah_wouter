@@ -1,5 +1,7 @@
 package sabah.wouter.dierenshop_sabah_wouter.Model;
 
+import java.util.Objects;
+
 public class ShoppingCartItem {
 
     // Fields
@@ -60,5 +62,13 @@ public class ShoppingCartItem {
                 ", qty=" + qty +
                 ", orderline: " + orderLineId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShoppingCartItem that = (ShoppingCartItem) o;
+        return product.equals(that.product);
     }
 }

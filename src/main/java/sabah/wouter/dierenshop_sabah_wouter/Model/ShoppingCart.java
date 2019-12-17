@@ -48,6 +48,24 @@ public class ShoppingCart {
         this.cartSum();
     }
 
+    // Add a product without a given quantity (defaults to 1)
+    // or if the item already exists in the ArrayList, adjust the quantity
+    public void addToCart( Product product ) {
+        ShoppingCartItem item = new ShoppingCartItem( product );
+        if( cartContent.contains( item )) {
+            int itemIndex = cartContent.indexOf( item );
+            ShoppingCartItem itemToUpdate = cartContent.get( itemIndex );
+            itemToUpdate.setQty( itemToUpdate.getQty()+1 );
+            cartContent.set( itemIndex, cartContent.set( itemIndex, itemToUpdate) );
+            System.out.println("Adjusted qty");
+        } else {
+            ShoppingCartItem newItem = new ShoppingCartItem( product, 1 );
+            this.cartContent.add( newItem );
+        }
+
+        this.cartSum();
+    }
+
     // Remove a product from the cart
     public void removeFromCart( int orderId ) {
 
@@ -61,12 +79,11 @@ public class ShoppingCart {
             }
         }
 
+        // Delete the item at the index found in indexToDelete
         cartContent.remove( indexToDelete );
 
         this.cartSum();
     }
-
-    // Change order quantity of item in cart
 
     // Get total price af items in cart
     public void cartSum(){
