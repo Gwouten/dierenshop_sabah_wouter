@@ -3,7 +3,9 @@
       xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Check out</title>
+    <link rel="stylesheet" th:href="@{~/css/main.css}">
+
 </head>
     <body>
     <nav th:replace="~{menu::#nav_menu(index)}"></nav>
@@ -38,20 +40,11 @@
             <input type="text" th:field="*{bankaccount}" id="textarea_bankaccount" >
             <span th:if="${#fields.hasErrors('bankaccount')}" th:errors="*{bankaccount}" class="error"></span>
         </div>
+
+        <input type="submit" th:value="#{submit}" class="btn btn-outline-primary">
     </form>
-    <input type="submit" th:value="#{submit}" class="btn btn-outline-primary"></input>
 
-    <td><a class="btn" th:href="@{/details/{id}(id = ${product.id})}">Details</a></td>
-
-
-
-
-
-
-
-
-
-
+    <div th:replace="~{menu::footer}">Copyright</div>
     </body>
 </html>
 

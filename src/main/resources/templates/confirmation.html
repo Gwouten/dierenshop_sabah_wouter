@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Confirmation</title>
+    <link rel="stylesheet" th:href="@{~/css/main.css}">
 </head>
-<body>
 
-</body>
+
+    <body>
+    <div th:replace="~{menu::#nav_menu(index)}"></div>
+
+        <h1>Bedankt voor u bestelling bij Tim&Jeffery</h1>
+        <div th:object="${customer}">
+
+            <p th:text="*{username}"></p>
+            <p th:text="*{adress}"></p>
+             <p th:text="*{postalcode}"></p>
+            <p th:text="*{email}"></p>
+
+        </div>
+    <div th:replace="~{menu::footer}">Copyright</div>
+    </body>
 </html>
