@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<nav th:fragment="nav_menu(page)" id="nav_menu">
+    <ul>
+        <li><a th:href="@{~/index}"th:class="${(page=='index')?'active':''}">Home</a></li>
+        <li><a th:href="@{~/about}"th:class="${(page=='about')?'active':''}">About</a></li>
+        <li><a th:href="@{~/cart}"th:class="${(page=='cart')?'active':''}">Cart</a></li>
+        <li><a th:href="@{~/login}"th:class="${(page=='login')?'active':''}">Login</a></li>
+
+    </ul>
+</nav>
+
+<footer th:fragment="footer">
+    <p>&copy; Tim&amp;Jeffrey</p>
+</footer>
+
+</html>

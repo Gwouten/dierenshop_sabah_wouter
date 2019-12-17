@@ -1,10 +1,7 @@
 package sabah.wouter.dierenshop_sabah_wouter.Model;
 
 import javax.persistence.*;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
 
@@ -35,11 +32,15 @@ import java.math.BigDecimal;
         @NotBlank
         private String category;
 
+        @Min(0)
         @NotNull
         private int stock;
 
         @NotBlank
         private int delivery;
+
+        @NotBlank
+        private String animal;
 
     public Product() {
     }
@@ -114,5 +115,13 @@ import java.math.BigDecimal;
 
     public void setDelivery(int delivery) {
         this.delivery = delivery;
+    }
+
+    public String getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(String animal) {
+        this.animal = animal;
     }
 }

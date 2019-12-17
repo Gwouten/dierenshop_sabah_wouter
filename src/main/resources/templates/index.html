@@ -6,16 +6,29 @@
     <link rel="stylesheet" th:href="@{~/css/main.css}">
 </head>
 
-<body>
+    <body>
+
+    <div th:replace="~{menu::#nav_menu(index)}"></div>
+
+        <div th:each="product : ${alleProducten}">
+            <p class="product_name" th:text="${product.name}"></p>
+            <p class="product_price" th:text="${product.price}"></p>
+            <p class="product_description" th:text="${product.description}"></p>
+            <p class="product_rating" th:text="${product.rating}"></p>
+            <p class="product_imgUrl" th:text="${product.imgUrl}"></p>
+            <p class="product_category" th:text="${product.category}"></p>
+            <p class="product_stock" th:text="${product.stock}"></p>
+            <p class="product_delivery" th:text="${product.delivery}"></p>
+            <p class="product_animal" th:text="${product.animal}"></p>
+            <img th:src="${product.imgUrl}" th:alt="${product.name}">
+            <a th:href="@{~/details/{id}(id=${product.id})}">details</a>
+        </div>
+
+        <div th:replace="~{menu::footer}">Copyright</div>
 
 
-<div class="blogpost" th:each="blog : ${alleBlogs}">
-    <p class="blogpost_username" th:text="${blog.username}"></p>
-    <p class="blogpost_time" th:text="${blog.time}"></p>
-    <p class="blogpost_tekstarea" th:text="${blog.boodschap}"></p>
 
-
-</body>
+    </body>
 </html>
 
 
