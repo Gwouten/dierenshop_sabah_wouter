@@ -62,6 +62,7 @@ public class ShoppingCart {
             ShoppingCartItem newItem = new ShoppingCartItem( product, 1 );
             this.cartContent.add( newItem );
         }
+
         this.cartSum();
     }
 
