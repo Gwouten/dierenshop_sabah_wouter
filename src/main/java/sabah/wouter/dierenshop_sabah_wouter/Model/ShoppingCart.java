@@ -29,11 +29,13 @@ public class ShoppingCart {
 
     @Override
     public String toString() {
-        String cart = "Cart: ";
+        String cart = "Cart:\n";
         for(ShoppingCartItem item : cartContent) {
             cart += "item: " + item.getProduct().getName() + ", price: " + item.getProduct().getPrice() + ", qty: " + item.getQty() + "\n";
         }
-        cart += "TOTAL: " + this.cartTotal;
+        if( cart != null) {
+            cart += "TOTAL: " + this.cartTotal;
+        }
         return cart;
     }
 
@@ -41,15 +43,26 @@ public class ShoppingCart {
 
     // Add a product to the cart: create new instance of ShoppingCartItem to add to ShoppingCart
     public void addToCart( Product product, int qty ) {
-        System.out.println("addToCart: "+product+", "+qty);
         ShoppingCartItem item = new ShoppingCartItem( product, qty );
         this.cartContent.add( item );
         this.cartSum();
     }
 
     // Remove a product from the cart
-    public void removeFromCart(Product product) {
-        this.cartContent.remove( product );
+    public void removeFromCart( int orderId ) {
+
+        // Select items to delete
+        int indexToDelete = 0;
+        for( ShoppingCartItem item : cartContent) {
+            System.out.println( "order id: " + item.getOrderId() );
+            System.out.println( "input: " + orderId );
+            if( orderId == item.getOrderId() ) {
+                indexToDelete = orderId - 1;
+            }
+        }
+
+        cartContent.remove( indexToDelete );
+
         this.cartSum();
     }
 

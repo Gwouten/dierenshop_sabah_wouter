@@ -36,10 +36,11 @@ public class DierenshopSabahWouterApplication {
         test2.setDelivery(2);
 
         ShoppingCart cart = new ShoppingCart();
-        System.out.println( cart );
 
         cart.addToCart(test1, 5);
         cart.addToCart(test2, 2);
+
+        cart.removeFromCart( 2);
 
         System.out.println( cart );
 
