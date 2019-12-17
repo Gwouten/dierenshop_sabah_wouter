@@ -1,10 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+    <body>
+    <nav th:replace="~{menu::#nav_menu(index)}"></nav>
 
-</body>
+    <form th:action="@{~/checkout}" method="POST" th:object="${nieuweCustomer}">
+        <div>
+            <label for="textarea_username">Username</label>
+            <input type="text" th:field="*{username}" id="textarea_username" >
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error"></span>
+        </div>
+
+        <div>
+            <label for="textarea_adress">Adress</label>
+            <input type="text" th:field="*{adress}" id="textarea_adress" >
+            <span th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}" class="error"></span>
+        </div>
+
+        <div>
+            <label for="textarea_postalcode">Postalcode</label>
+            <input type="text" th:field="*{postalcode}" id="textarea_postalcode" >
+            <span th:if="${#fields.hasErrors('postalcode')}" th:errors="*{postalcode}" class="error"></span>
+        </div>
+
+        <div>
+            <label for="textarea_email">Email</label>
+            <input type="text" th:field="*{email}" id="textarea_email" >
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
+        </div>
+
+        <div>
+            <label for="textarea_bankaccount">Bankaccount</label>
+            <input type="text" th:field="*{bankaccount}" id="textarea_bankaccount" >
+            <span th:if="${#fields.hasErrors('bankaccount')}" th:errors="*{bankaccount}" class="error"></span>
+        </div>
+    </form>
+    <input type="submit" th:value="#{submit}" class="btn btn-outline-primary"></input>
+
+    <td><a class="btn" th:href="@{/details/{id}(id = ${product.id})}">Details</a></td>
+
+
+
+
+
+
+
+
+
+
+    </body>
 </html>
+
+
+

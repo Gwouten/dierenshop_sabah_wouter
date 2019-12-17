@@ -41,7 +41,18 @@ import java.math.BigDecimal;
         @NotBlank
         private int delivery;
 
+        @NotBlank
+        private String animal;
+
     public Product() {
+    }
+
+    public String getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(String animal) {
+        this.animal = animal;
     }
 
     public int getId() {
