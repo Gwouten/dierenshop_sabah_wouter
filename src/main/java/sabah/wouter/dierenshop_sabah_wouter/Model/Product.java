@@ -115,4 +115,19 @@ import java.math.BigDecimal;
     public void setDelivery(int delivery) {
         this.delivery = delivery;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", rating=" + rating +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", category='" + category + '\'' +
+                ", stock=" + stock +
+                ", delivery=" + delivery +
+                '}';
+    }
 }

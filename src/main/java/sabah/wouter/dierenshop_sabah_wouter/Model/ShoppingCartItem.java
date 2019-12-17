@@ -7,6 +7,8 @@ public class ShoppingCartItem {
     private int qty;
 
     // Constructors
+    public ShoppingCartItem() {
+    }
 
     public ShoppingCartItem(Product product) {
         this.product = product;
