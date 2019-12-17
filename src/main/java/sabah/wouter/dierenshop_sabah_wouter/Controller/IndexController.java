@@ -7,8 +7,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import sabah.wouter.dierenshop_sabah_wouter.Model.CartDAO;
 import sabah.wouter.dierenshop_sabah_wouter.Model.Product;
-import sabah.wouter.dierenshop_sabah_wouter.Model.Productdao;
+import sabah.wouter.dierenshop_sabah_wouter.Model.ProductDAO;
 
 import javax.validation.Valid;
 
@@ -16,13 +17,17 @@ import javax.validation.Valid;
 class IndexController {
 
     @Autowired
-    Productdao dao;
+    ProductDAO dao;
 
     @ModelAttribute(value = "alleProducten")
     public Iterable<Product> getAllProducts(){
         return dao.findAll();
     }
 
+    @ModelAttribute(value = "product")
+    public Product productToAdd() {
+        return new Product();
+    }
 
     @RequestMapping(value = {"","/","/index"},method = RequestMethod.GET)
     public String showIndex(ModelMap map) {
@@ -35,10 +40,13 @@ class IndexController {
             return "new";
         dao.save(nieuweProduct);
         return "redirect:/index";
+    }
 
 
 
-
+    @RequestMapping(value = "/add-to-cart", method = RequestMethod.POST)
+    public void addToCart(@ModelAttribute(name = "product") Product product, BindingResult br) {
+        CartDAO.addToCart( product );
     }
 }
 

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import sabah.wouter.dierenshop_sabah_wouter.Model.Product;
-import sabah.wouter.dierenshop_sabah_wouter.Model.Productdao;
+import sabah.wouter.dierenshop_sabah_wouter.Model.ProductDAO;
 
 import java.util.Optional;
 
@@ -17,7 +17,7 @@ import java.util.Optional;
 public class DetailController {
 
     @Autowired
-    Productdao repo;
+    ProductDAO repo;
 
 
     @RequestMapping(value = "/details/{id}", method = RequestMethod.GET)

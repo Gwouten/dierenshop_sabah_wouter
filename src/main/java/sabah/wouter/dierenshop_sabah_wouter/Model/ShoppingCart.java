@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ShoppingCart {
 
     // Fields
-    private ArrayList<ShoppingCartItem> cartContent;
+    private static ArrayList<ShoppingCartItem> cartContent;
     private BigDecimal cartTotal;
 
     // Constructors
@@ -42,15 +42,15 @@ public class ShoppingCart {
     // Methods
 
     // Add a product to the cart: create new instance of ShoppingCartItem to add to ShoppingCart
-    public void addToCart( Product product, int qty ) {
+    public static void addToCart( Product product, int qty ) {
         ShoppingCartItem item = new ShoppingCartItem( product, qty );
-        this.cartContent.add( item );
-        this.cartSum();
+        cartContent.add( item );
+        cartSum();
     }
 
     // Add a product without a given quantity (defaults to 1)
     // or if the item already exists in the ArrayList, adjust the quantity
-    public void addToCart( Product product ) {
+    public static void addToCart( Product product ) {
         ShoppingCartItem item = new ShoppingCartItem( product );
         if( cartContent.contains( item )) {
             int itemIndex = cartContent.indexOf( item );
@@ -60,14 +60,14 @@ public class ShoppingCart {
             System.out.println("Adjusted qty");
         } else {
             ShoppingCartItem newItem = new ShoppingCartItem( product, 1 );
-            this.cartContent.add( newItem );
+            cartContent.add( newItem );
         }
 
-        this.cartSum();
+        cartSum();
     }
 
     // Remove a product from the cart
-    public void removeFromCart( int orderId ) {
+    public static void removeFromCart( int orderId ) {
 
         // Select items to delete
         int indexToDelete = 0;
@@ -82,20 +82,20 @@ public class ShoppingCart {
         // Delete the item at the index found in indexToDelete
         cartContent.remove( indexToDelete );
 
-        this.cartSum();
+        cartSum();
     }
 
     // Get total price af items in cart
-    public void cartSum(){
+    public static void cartSum(){
         BigDecimal cartTotal = new BigDecimal(0);
-        for(ShoppingCartItem prod : this.cartContent) {
+        for(ShoppingCartItem prod : cartContent) {
 
             BigDecimal price = prod.getProduct().getPrice();
             BigDecimal qty = BigDecimal.valueOf( prod.getQty() );
 
             cartTotal = cartTotal.add( price.multiply( qty ) );
         }
-        this.cartTotal = cartTotal;
+        cartTotal = cartTotal;
     }
 
 }
