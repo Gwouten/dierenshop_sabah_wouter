@@ -63,3 +63,62 @@ html, body {
     color: #ffffff;
     padding:1rem 0;
 }
+
+/* Forms */
+.customerForm {
+    margin: 2rem 0;
+}
+
+.customerForm .customerForm__input{
+    display: flex;
+}
+.customerForm .customerForm__input + .customerForm__input{
+    margin-top: 1rem;
+}
+
+.customerForm .customerForm__label {
+    width: 150px;
+}
+
+/* Products Overview */
+.product__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.product {
+    position: relative;
+    width: 50%;
+}
+
+.product__price {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, -50%);
+    display: block;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    padding: .5rem;
+    border-radius: 1000px;
+    background-color: #098b00;
+    color: white;
+}
+
+.product__row {
+    display: flex;
+}
+
+.product__row.product__row--column {
+    flex-direction: column;
+}
+
+.product__row.product__row--center {
+    justify-content: center;
+}
+
+.product__img {
+    height: 200px;
+    width: auto;
+}

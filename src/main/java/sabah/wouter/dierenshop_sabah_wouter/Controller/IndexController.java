@@ -5,13 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import sabah.wouter.dierenshop_sabah_wouter.Model.CartDAO;
-import sabah.wouter.dierenshop_sabah_wouter.Model.Product;
-import sabah.wouter.dierenshop_sabah_wouter.Model.ProductDAO;
+import sabah.wouter.dierenshop_sabah_wouter.Model.*;
 
 import javax.validation.Valid;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 
 @Controller
 class IndexController {
@@ -22,11 +23,6 @@ class IndexController {
     @ModelAttribute(value = "alleProducten")
     public Iterable<Product> getAllProducts(){
         return dao.findAll();
-    }
-
-    @ModelAttribute(value = "product")
-    public Product productToAdd() {
-        return new Product();
     }
 
     @RequestMapping(value = {"","/","/index"},method = RequestMethod.GET)
@@ -43,10 +39,17 @@ class IndexController {
     }
 
 
-
-    @RequestMapping(value = "/add-to-cart", method = RequestMethod.POST)
-    public void addToCart(@ModelAttribute(name = "product") Product product, BindingResult br) {
-        CartDAO.addToCart( product );
+    @ModelAttribute(value = "product")
+    public Product productToAdd() {
+        return new Product();
     }
+
+    @RequestMapping(value = "/add-to-cart/{product}", method = RequestMethod.POST)
+    public String addToCart(@PathVariable(name = "product") Product product) {
+        CartDAO.addToCart( product );
+        return "redirect:/cart";
+    }
+
+
 }
 

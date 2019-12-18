@@ -5,47 +5,54 @@
     <meta charset="UTF-8">
     <title>Check out</title>
     <link rel="stylesheet" th:href="@{~/css/main.css}">
-
 </head>
-    <body>
-    <nav th:replace="~{menu::#nav_menu(index)}"></nav>
 
-    <form th:action="@{~/checkout}" method="POST" th:object="${nieuweCustomer}">
-        <div>
-            <label for="textarea_username">Username</label>
-            <input type="text" th:field="*{username}" id="textarea_username" >
-            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error"></span>
-        </div>
+<body>
 
-        <div>
-            <label for="textarea_adress">Adress</label>
-            <input type="text" th:field="*{adress}" id="textarea_adress" >
-            <span th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}" class="error"></span>
-        </div>
+    <div th:replace="~{menu::#nav_menu(index)}"></div>
 
-        <div>
-            <label for="textarea_postalcode">Postalcode</label>
-            <input type="text" th:field="*{postalcode}" id="textarea_postalcode" >
-            <span th:if="${#fields.hasErrors('postalcode')}" th:errors="*{postalcode}" class="error"></span>
-        </div>
+    <div class="container">
+        <form class="customerForm" th:action="@{~/checkout}" method="POST" th:object="${nieuweCustomer}">
+            <div class="customerForm__input">
+                <label class="customerForm__label" for="username">Username</label>
+                <input type="text" th:field="*{username}" id="username" >
+                <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error"></span>
+            </div>
 
-        <div>
-            <label for="textarea_email">Email</label>
-            <input type="text" th:field="*{email}" id="textarea_email" >
-            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
-        </div>
+            <div class="customerForm__input">
+                <label class="customerForm__label" for="adress">Adress</label>
+                <input type="text" th:field="*{adress}" id="adress" >
+                <span th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}" class="error"></span>
+            </div>
 
-        <div>
-            <label for="textarea_bankaccount">Bankaccount</label>
-            <input type="text" th:field="*{bankaccount}" id="textarea_bankaccount" >
-            <span th:if="${#fields.hasErrors('bankaccount')}" th:errors="*{bankaccount}" class="error"></span>
-        </div>
+            <div class="customerForm__input">
+                <label class="customerForm__label" for="postalcode">Postal Code</label>
+                <input type="text" th:field="*{postalcode}" id="postalcode" >
+                <span th:if="${#fields.hasErrors('postalcode')}" th:errors="*{postalcode}" class="error"></span>
+            </div>
 
-        <input type="submit" th:value="#{submit}" class="btn btn-outline-primary">
-    </form>
+            <div class="customerForm__input">
+                <label class="customerForm__label" for="email">Email</label>
+                <input type="text" th:field="*{email}" id="email" >
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
+            </div>
+
+            <div class="customerForm__input">
+                <label class="customerForm__label" for="bankaccount">Bankaccount</label>
+                <input type="text" th:field="*{bankaccount}" id="bankaccount" >
+                <span th:if="${#fields.hasErrors('bankaccount')}" th:errors="*{bankaccount}" class="error"></span>
+            </div>
+
+            <div class="customerForm__input">
+                <input type="submit" th:value="#{submit}" class="btn">
+            </div>
+        </form>
+    </div>
 
     <div th:replace="~{menu::footer}">Copyright</div>
-    </body>
+
+</body>
+
 </html>
 
 

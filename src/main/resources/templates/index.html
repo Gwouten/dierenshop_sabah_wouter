@@ -23,7 +23,7 @@
             <p class="product_animal" th:text="${product.animal}"></p>
             <img th:src="${product.imgUrl}" th:alt="${product.name}">
             <a th:href="@{~/details/{id}(id=${product.id})}">details</a>
-            <a th:href="@{~/add-to-cart}" th:object="${product}" class="btn btn--order">Add to cart</a>
+            <a th:href="@{~/add-to-cart}" class="btn btn--order">Add to cart</a>
         </div>
     </div>
 

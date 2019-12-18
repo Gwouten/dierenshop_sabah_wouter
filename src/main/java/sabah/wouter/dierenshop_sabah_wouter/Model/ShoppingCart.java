@@ -7,7 +7,7 @@ public class ShoppingCart {
 
     // Fields
     private static ArrayList<ShoppingCartItem> cartContent;
-    private BigDecimal cartTotal;
+    private static BigDecimal cartTotal;
 
     // Constructors
     public ShoppingCart() {
@@ -19,12 +19,22 @@ public class ShoppingCart {
     }
 
     // Getters & setters
-    public ArrayList<ShoppingCartItem> getCartContent() {
+
+
+    public static ArrayList<ShoppingCartItem> getCartContent() {
         return cartContent;
     }
 
-    public void setCartContent(ArrayList<ShoppingCartItem> cartContent) {
-        this.cartContent = cartContent;
+    public static void setCartContent(ArrayList<ShoppingCartItem> cartContent) {
+        ShoppingCart.cartContent = cartContent;
+    }
+
+    public static BigDecimal getCartTotal() {
+        return cartTotal;
+    }
+
+    public static void setCartTotal(BigDecimal cartTotal) {
+        ShoppingCart.cartTotal = cartTotal;
     }
 
     @Override

@@ -8,9 +8,29 @@
 
 </head>
     <body>
-        <div th:replace="~{menu::#nav_menu(index)}"></div>
 
+        <div th:replace="~{menu::#nav_menu(cart)}"></div>
 
+        <div class="container">
+            <table class="cart" th:each="cartItem : ${cartContent}">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td th:text="${cartItem.product.getName()}"></td>
+                        <td th:text="${cartItem.product.getPrice()}"></td>
+                        <td th:text="${cartItem.qty}"></td>
+                        <td th:text="${cartItem.product.getPrice() * cartItem.qty}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div th:replace="~{menu::footer}">Copyright</div>
 
