@@ -17,6 +17,7 @@ public class AddController {
     @Autowired
     ProductDAO dao;
 
+    // deze controller zorgt ervoor dat we producten kunnen toevoegen
     @RequestMapping(value = "/add/{id}", method = RequestMethod.GET)
     public String addToCart(@PathVariable("id") int id) {
         Product product = dao.findById( id ).get();

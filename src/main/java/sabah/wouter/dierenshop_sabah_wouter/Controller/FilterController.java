@@ -15,6 +15,7 @@ import sabah.wouter.dierenshop_sabah_wouter.Model.ProductDAO;
 @Controller
 public class FilterController {
 
+        // deze controller zorgt ervoor dat we kunnen filteren op categorie
 
         @Autowired
         ProductDAO dao;

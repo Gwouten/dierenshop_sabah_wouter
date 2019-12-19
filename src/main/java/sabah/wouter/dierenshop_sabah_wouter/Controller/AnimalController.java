@@ -17,6 +17,7 @@ public class AnimalController {
     @Autowired
     ProductDAO dao;
 
+    //deze controller wordt gebruikt om een filter te maken van de animals
 
     @ModelAttribute(value = "alledieren")
     public Iterable<Product> findAll() {
