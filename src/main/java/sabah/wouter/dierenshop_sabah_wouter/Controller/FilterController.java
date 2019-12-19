@@ -13,7 +13,7 @@ import sabah.wouter.dierenshop_sabah_wouter.Model.ProductDAO;
 
 
 @Controller
-public class CategoryController {
+public class FilterController {
 
 
         @Autowired
@@ -26,7 +26,7 @@ public class CategoryController {
 
         @RequestMapping(value = {"/categoryfilter/{category}"}, method = RequestMethod.GET)
         public String showCategory(ModelMap map , @PathVariable(value = "category") String category) {
-            map.addAttribute("Mycategory", dao.findByCategory(category));
+            map.addAttribute("filteredProducts", dao.findByCategory(category));
             return "categoryfilter";
         }
 

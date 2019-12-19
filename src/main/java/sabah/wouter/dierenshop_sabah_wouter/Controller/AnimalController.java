@@ -25,7 +25,7 @@ public class AnimalController {
 
     @RequestMapping(value = {"animalfilter/{animal}"}, method = RequestMethod.GET)
     public String showAnimal(ModelMap map , @PathVariable(value = "animal") String animal) {
-        map.addAttribute("Dieren", dao.findByAnimal(animal));
+        map.addAttribute("animals", dao.findByAnimal(animal));
         return "animalfilter";
     }
 

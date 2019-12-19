@@ -17,15 +17,30 @@
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
 </head>
-<body>
 
 
+    <body>
+    <div th:replace="~{menu::#nav_menu(index)}"></div>
 
 
+    <div th:each="product : ${animals}">
+        <div>
 
 
+            <p class="product_name" th:text="${product.name}"></p>
+            <p class="product_price" th:text="${product.price}"></p>
+            <p class="product_description" th:text="${product.description}"></p>
+            <p class="product_rating" th:text="${product.rating}"></p>
+            <p class="product_imgUrl" th:text="${product.imgUrl}"></p>
+            <p class="product_category" th:text="${product.category}"></p>
+            <p class="product_stock" th:text="${product.stock}"></p>
+            <p class="product_delivery" th:text="${product.delivery}"></p>
+            <p class="product_animal" th:text="${product.animal}"></p>
+            <img th:src="${product.imgUrl}" th:alt="${product.name}">
+            <a th:href="@{~/details/{id}(id=${product.id})}">details</a>
 
-
-
-</body>
+            <a th:href="@{~/add/{id}(id=${product.id})}" class="btn btn--order">Add to cart</a>
+        </div>
+    </div>
+    </body>
 </html>

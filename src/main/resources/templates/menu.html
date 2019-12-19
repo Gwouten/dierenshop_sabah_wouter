@@ -22,6 +22,17 @@
                     </div>
                 </li>
 
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Animals
+                    </a>
+                    <div id="a3" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/animalfilter/Dogs">Dogs</a>
+                        <a class="dropdown-item" href="/animalfilter/Cats">Cats</a>
+                        <a class="dropdown-item" href="/animalfilter/Birds">Birds</a>
+                        <a class="dropdown-item" href="/animalfilter/Turtles">Turtles</a>
+                    </div>
+                </li>
 
                 <li class="nav__list-item"><a th:href="@{~/about}"th:class="${(page=='about')?'active nav\_\_link':'nav\_\_link'}">About</a></li>
                 <li class="nav__list-item"><a th:href="@{~/cart}"th:class="${(page=='cart')?'active nav\_\_link':'nav\_\_link'}">Cart</a></li>
