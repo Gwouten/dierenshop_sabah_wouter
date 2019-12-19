@@ -20,19 +20,36 @@
     <div th:replace="~{menu::#nav_menu(index)}"></div>
 
     <div class="container">
-        <div th:each="product : ${alleProducten}">
-            <p class="product_name" th:text="${product.name}"></p>
-            <p class="product_price" th:text="${product.price}"></p>
-            <p class="product_description" th:text="${product.description}"></p>
-            <p class="product_rating" th:text="${product.rating}"></p>
-            <p class="product_imgUrl" th:text="${product.imgUrl}"></p>
-            <p class="product_category" th:text="${product.category}"></p>
-            <p class="product_stock" th:text="${product.stock}"></p>
-            <p class="product_delivery" th:text="${product.delivery}"></p>
-            <p class="product_animal" th:text="${product.animal}"></p>
-            <img th:src="${product.imgUrl}" th:alt="${product.name}">
-            <a th:href="@{~/details/{id}(id=${product.id})}">details</a>
-            <a th:href="@{~/add/{id}(id=${product.id})}" class="btn btn--order">Add to cart</a>
+
+        <div class="product__wrapper">
+            <div class="product" th:each="product : ${alleProducten}">
+
+                <div class="product__row product__row--column">
+                    <h3 class="header header--3 product__name" th:text="${product.name}"></h3>
+                    <p class="product__category" th:text="${product.category}"></p>
+                </div>
+
+                <div class="product__row product__row--center">
+                    <img class="product__img" th:src="${product.imgUrl}" th:alt="${product.name}">
+                </div>
+
+                <p class="product__price" th:text="|€${product.price}|"></p>
+                <p class="product__description" th:text="${product.description}"></p>
+
+                <div class="product__info">
+                    <p class="product__rating" th:text="|Rating: ${product.rating}/10|"></p>
+                    <p class="product__stock" th:text="|In stock: ${product.stock}|"></p>
+                    <p class="product__delivery" th:if="${product.stock == 0}" th:text="|Expected delivery: about ${product.delivery} weeks|"></p>
+                </div>
+
+                <p class="product__animal" th:text="${product.animal}"></p>
+
+                <div class="prod__btns">
+                    <a th:href="@{~/details/{id}(id=${product.id})}">details</a>
+                    <a th:href="@{~/add/{id}(id=${product.id})}" class="btn btn--order">Add to cart</a>
+                </div>
+
+            </div>
         </div>
     </div>
 

@@ -84,12 +84,13 @@ html, body {
 .product__wrapper {
     display: flex;
     flex-wrap: wrap;
-    margin: 2rem 0;
+    margin: 4rem 0;
 }
 
 .product {
     position: relative;
     width: 50%;
+    padding: 1rem;
 }
 
 .product__price {

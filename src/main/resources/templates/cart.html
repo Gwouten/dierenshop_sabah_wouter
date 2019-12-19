@@ -43,6 +43,9 @@
                 </tbody>
             </table>
             <p class="cart-total" th:utext="|Cart total: €${cartTotal}|"></p>
+
+            <a class="btn" th:href="@{~/checkout}">Go to checkout</a>
+
             </div>
 
             <p th:if="${cartContent.isEmpty()}">Cart is empty.</p>
