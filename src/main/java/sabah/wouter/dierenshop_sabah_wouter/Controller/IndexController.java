@@ -21,6 +21,8 @@ class IndexController {
     @Autowired
     ProductDAO dao;
 
+    //deze controller zorgt ervoor dat heel onze catalogus wordt getoond
+
     @ModelAttribute(value = "alleProducten")
     public Iterable<Product> getAllProducts(){
         return dao.findAll();

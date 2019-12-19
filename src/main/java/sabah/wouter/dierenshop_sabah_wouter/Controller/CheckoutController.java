@@ -14,6 +14,8 @@ import javax.validation.Valid;
 @Controller
 public class CheckoutController {
 
+    //deze controller zorgt ervoor dat een bezoeker zich kan uitchecken
+
     @ModelAttribute(value = "nieuweCustomer")
     public Customer customerToSave() {
         return new Customer();

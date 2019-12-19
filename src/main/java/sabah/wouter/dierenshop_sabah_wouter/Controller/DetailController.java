@@ -19,7 +19,7 @@ public class DetailController {
     @Autowired
     ProductDAO repo;
 
-
+    //deze controller zorgt ervoor dat de bezoeker alle details op een overzicht pagina krijgt
     @RequestMapping(value = "/details/{id}", method = RequestMethod.GET)
 
     public String showDetailsForID(ModelMap map, @PathVariable(value = "id") int id){
