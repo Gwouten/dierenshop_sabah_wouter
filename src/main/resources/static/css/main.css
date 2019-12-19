@@ -12,11 +12,22 @@ html, body {
     padding: 0;
 }
 
+.header.header--4 {
+    font-size: 1.5rem;
+}
+
 .container {
     width: 70%;
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* Utility */
+.u-border-left {
+    padding: 1rem;
+    border-left: 1px solid #555555;
+}
+
 
 /* Navigation */
 .nav__wrapper {
@@ -124,6 +135,12 @@ html, body {
     width: auto;
 }
 
-.nav-item dropdown{
-    color: brown;
+.product__info__header {
+    margin-bottom: .5rem;
+}
+
+.product__rating,
+.product__stock,
+.product__delivery {
+    margin: 0;
 }

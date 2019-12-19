@@ -37,9 +37,12 @@
                 <p class="product__description" th:text="${product.description}"></p>
 
                 <div class="product__info">
-                    <p class="product__rating" th:text="|Rating: ${product.rating}/10|"></p>
-                    <p class="product__stock" th:text="|In stock: ${product.stock}|"></p>
-                    <p class="product__delivery" th:if="${product.stock == 0}" th:text="|Expected delivery: about ${product.delivery} weeks|"></p>
+                    <h4 class="product__info__header header header--4">Info</h4>
+                    <div class="u-border-left">
+                        <p class="product__rating" th:text="|Rating: ${product.rating}/10|"></p>
+                        <p class="product__stock" th:text="|In stock: ${product.stock}|"></p>
+                        <p class="product__delivery" th:if="${product.stock == 0}" th:text="|Expected delivery: about ${product.delivery} weeks|"></p>
+                    </div>
                 </div>
 
                 <p class="product__animal" th:text="${product.animal}"></p>
