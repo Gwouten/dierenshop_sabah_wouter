@@ -43,12 +43,18 @@ public class CartController {
 
     @ModelAttribute("cartContent")
     public ArrayList<ShoppingCartItem> getCartContent() {
-        return ShoppingCart.getCartContent();
+        return ShoppingCart.INSTANCE.getCartContent();
+    }
+
+    @ModelAttribute("cartTotal")
+    public BigDecimal getCartTotal() {
+        return ShoppingCart.INSTANCE.getCartTotal();
     }
 
     @RequestMapping(value = "/cart", method = RequestMethod.GET)
     public String showCart(
-            @ModelAttribute(name = "cartContent") ShoppingCartItem item,
+            @ModelAttribute("cartContent") ShoppingCartItem item,
+            @ModelAttribute("cartTotal") BigDecimal cartTotal,
             BindingResult bindingResult
     ) {
         return "cart";
