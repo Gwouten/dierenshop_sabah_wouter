@@ -12,6 +12,7 @@
         <div th:replace="~{menu::#nav_menu(cart)}"></div>
 
         <div class="container">
+            <div class="cart__wrapper" th:if="${!cartContent.isEmpty()}">
             <table class="cart">
                 <thead>
                     <tr>
@@ -27,11 +28,15 @@
                         <td th:text="${cartItem.product.getName()}"></td>
                         <td th:text="${cartItem.product.getPrice()}"></td>
                         <td th:text="${cartItem.qty}"></td>
-                        <td th:text="${cartItem.product.getPrice() * cartItem.qty}"></td>
+                        <td th:text="|€${cartItem.product.getPrice() * cartItem.qty}|"></td>
+                        <td><a th:href="@{~/remove/{id}(id = ${cartItem.product.id})}">Remove</a></td>
                     </tr>
                 </tbody>
             </table>
-            <p class="cart-total" th:text="|€${cartTotal}|"></p>
+            <p class="cart-total" th:utext="|Cart total: €${cartTotal}|"></p>
+            </div>
+
+            <p th:if="${cartContent.isEmpty()}">Cart is empty.</p>
         </div>
 
         <div th:replace="~{menu::footer}">Copyright</div>

@@ -75,20 +75,22 @@ public enum  ShoppingCart {
     }
 
     // Remove a product from the cart
-    public void removeFromCart( int orderId ) {
+    public void removeFromCart( Product product ) {
 
         // Select items to delete
-        int indexToDelete = 0;
-        for( ShoppingCartItem item : cartContent) {
-            System.out.println( "order id: " + item.getOrderId() );
-            System.out.println( "input: " + orderId );
-            if( orderId == item.getOrderId() ) {
-                indexToDelete = orderId - 1;
-            }
-        }
+//        int indexToDelete = 0;
+//        for( ShoppingCartItem item : cartContent) {
+//            System.out.println( "order id: " + item.getOrderId() );
+//            System.out.println( "input: " + orderId );
+//            if( orderId == item.getOrderId() ) {
+//                indexToDelete = orderId - 1;
+//            }
+//        }
 
         // Delete the item at the index found in indexToDelete
-        cartContent.remove( indexToDelete );
+        if(cartContent.contains( product )) {
+            cartContent.remove( product );
+        }
 
         cartSum();
     }
