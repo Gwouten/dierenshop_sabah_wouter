@@ -13,6 +13,7 @@ import sabah.wouter.dierenshop_sabah_wouter.Model.*;
 import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Controller
 class IndexController {
@@ -33,23 +34,10 @@ class IndexController {
     @RequestMapping(value = {"","/","/index"},method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute(name="nieuweProduct") @Valid Product nieuweProduct, BindingResult bindingResult){
         if(bindingResult.hasErrors())
-            return "new";
+            return "index";
         dao.save(nieuweProduct);
         return "redirect:/index";
     }
-
-
-    @ModelAttribute(value = "product")
-    public Product productToAdd() {
-        return new Product();
-    }
-
-    @RequestMapping(value = "/add-to-cart/{product}", method = RequestMethod.POST)
-    public String addToCart(@PathVariable(name = "product") Product product) {
-        CartDAO.addToCart( product );
-        return "redirect:/cart";
-    }
-
 
 }
 
