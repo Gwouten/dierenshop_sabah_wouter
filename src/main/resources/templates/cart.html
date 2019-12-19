@@ -12,17 +12,18 @@
         <div th:replace="~{menu::#nav_menu(cart)}"></div>
 
         <div class="container">
-            <table class="cart" th:each="cartItem : ${cartContent}">
+            <table class="cart">
                 <thead>
                     <tr>
                         <th>Item</th>
                         <th>Price</th>
                         <th>Qty</th>
                         <th>Total Price</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr th:each="cartItem : ${cartContent}">
                         <td th:text="${cartItem.product.getName()}"></td>
                         <td th:text="${cartItem.product.getPrice()}"></td>
                         <td th:text="${cartItem.qty}"></td>
@@ -30,6 +31,7 @@
                     </tr>
                 </tbody>
             </table>
+            <p class="cart-total" th:text="|€${cartTotal}|"></p>
         </div>
 
         <div th:replace="~{menu::footer}">Copyright</div>
