@@ -18,7 +18,7 @@
 
 
     <body>
-    <div th:replace="~{menu::#nav_menu(index)}"></div>
+    <div th:replace="~{menu::#nav_menu(confirmation, ${cartAmount})}"></div>
 
         <h1>Bedankt voor u bestelling bij Tim&Jeffery</h1>
         <div th:object="${customer}">

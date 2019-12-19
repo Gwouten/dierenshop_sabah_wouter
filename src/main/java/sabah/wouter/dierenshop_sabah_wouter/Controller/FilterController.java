@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import sabah.wouter.dierenshop_sabah_wouter.Model.Product;
 import sabah.wouter.dierenshop_sabah_wouter.Model.ProductDAO;
-
+import sabah.wouter.dierenshop_sabah_wouter.Model.ShoppingCart;
 
 
 @Controller
@@ -28,6 +28,7 @@ public class FilterController {
         @RequestMapping(value = {"/categoryfilter/{category}"}, method = RequestMethod.GET)
         public String showCategory(ModelMap map , @PathVariable(value = "category") String category) {
             map.addAttribute("filteredProducts", dao.findByCategory(category));
+            map.addAttribute("cartAmount", ShoppingCart.INSTANCE.getCartContent().size());
             return "categoryfilter";
         }
 

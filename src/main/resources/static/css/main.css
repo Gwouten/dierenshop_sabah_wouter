@@ -141,6 +141,10 @@ html, body {
     transition: border-color .15s;
 }
 
+.product--detail {
+
+}
+
 .product:hover {
     border-color: #098b00;
 }

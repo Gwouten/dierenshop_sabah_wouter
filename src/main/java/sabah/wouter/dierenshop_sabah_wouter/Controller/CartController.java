@@ -21,7 +21,7 @@ public class CartController {
     }
 
     @RequestMapping(value = "/add-to-cart", method = RequestMethod.GET)
-    public String showIndex() {
+    public String showCart(ModelMap map) {
         return "redirect:/index";
     }
 
@@ -53,10 +53,12 @@ public class CartController {
 
     @RequestMapping(value = "/cart", method = RequestMethod.GET)
     public String showCart(
+            ModelMap map,
             @ModelAttribute("cartContent") ShoppingCartItem item,
             @ModelAttribute("cartTotal") BigDecimal cartTotal,
             BindingResult bindingResult
     ) {
+        map.addAttribute("cartAmount", ShoppingCart.INSTANCE.getCartContent().size());
         return "cart";
     }
 }

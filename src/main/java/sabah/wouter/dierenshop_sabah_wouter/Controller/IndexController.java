@@ -30,6 +30,7 @@ class IndexController {
 
     @RequestMapping(value = {"","/","/index"},method = RequestMethod.GET)
     public String showIndex(ModelMap map) {
+        map.addAttribute("cartAmount", ShoppingCart.INSTANCE.getCartContent().size());
         return "index";
     }
 

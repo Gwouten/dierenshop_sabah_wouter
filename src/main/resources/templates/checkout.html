@@ -18,7 +18,7 @@
 
 <body>
 
-    <div th:replace="~{menu::#nav_menu(index)}"></div>
+<div th:replace="~{menu::#nav_menu(checkout, ${cartAmount})}"></div>
 
     <div class="container">
         <form class="customerForm" th:action="@{~/checkout}" method="POST" th:object="${nieuweCustomer}">

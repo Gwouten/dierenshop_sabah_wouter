@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import sabah.wouter.dierenshop_sabah_wouter.Model.Customer;
 import sabah.wouter.dierenshop_sabah_wouter.Model.CustomerSingleton;
+import sabah.wouter.dierenshop_sabah_wouter.Model.ShoppingCart;
 
 import javax.validation.Valid;
 
@@ -23,6 +24,7 @@ public class CheckoutController {
 
     @RequestMapping(value = "/checkout", method = RequestMethod.GET)
     public String showIndex(ModelMap map) {
+        map.addAttribute("cartAmount", ShoppingCart.INSTANCE.getCartContent().size());
         return "checkout";
     }
 

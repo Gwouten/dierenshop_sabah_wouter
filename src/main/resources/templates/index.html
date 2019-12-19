@@ -17,17 +17,11 @@
 
 <body>
 
-    <div th:replace="~{menu::#nav_menu(index)}"></div>
+    <div th:replace="~{menu::#nav_menu(index, ${cartAmount})}"></div>
 
-    <header class="banner">
-        <div class="banner__header">
-            <h1 class="banner__title header header--1">Tim & Jeffrey</h1>
-            <h3 class="banner__subtitle header header--3">Pet owners' store</h3>
-        </div>
-    </header>
+    <div th:replace="~{menu::banner}"></div>
 
     <div class="container">
-
         <div class="product__wrapper">
             <div class="product" th:each="product : ${alleProducten}">
 
@@ -58,7 +52,6 @@
                     <a th:href="@{~/details/{id}(id=${product.id})}" class="btn btn--details">details</a>
                     <a th:href="@{~/add/{id}(id=${product.id})}" class="btn btn--add">Add to cart</a>
                 </div>
-
             </div>
         </div>
     </div>

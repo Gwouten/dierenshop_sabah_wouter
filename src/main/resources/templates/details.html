@@ -17,13 +17,14 @@
 </head>
 <body>
 
-    <div th:replace="~{menu::#nav_menu(index)}"></div>
+<div th:replace="~{menu::#nav_menu(details, ${cartAmount})}"></div>
 
     <div class="container">
-        <div class="product">
+        <div class="product product--detail">
 
             <div class="product__row product__row--column">
                 <h3 class="header header--3 product__name" th:text="${product.name}"></h3>
+                <h3 class="header header--3 product__price" th:text="|€${product.price}|"></h3>
                 <p class="product__category" th:text="${product.category}"></p>
             </div>
 
@@ -31,12 +32,22 @@
                 <img class="product__img" th:src="${product.imgUrl}" th:alt="${product.name}">
             </div>
 
-            <p class="product__price" th:text="|€${product.price}|"></p>
-            <p class="product__rating" th:text="|Rating: ${product.rating}/10|"></p>
             <p class="product__description" th:text="${product.description}"></p>
-            <p class="product__stock" th:text="|In stock: ${product.stock}|"></p>
-            <p class="product__delivery" th:if="${product.stock == 0}" th:text="|Expected delivery: about ${product.delivery} weeks|"></p>
+
+            <div class="product__info">
+                <h4 class="product__info__header header header--4">Info</h4>
+                <div class="">
+                    <p class="product__rating" th:text="|Rating: ${product.rating}/10|"></p>
+                    <p class="product__stock" th:text="|In stock: ${product.stock}|"></p>
+                    <p class="product__delivery" th:if="${product.stock == 0}" th:text="|Expected delivery: about ${product.delivery} weeks|"></p>
+                </div>
+            </div>
+
             <p class="product__animal" th:text="${product.animal}"></p>
+
+            <div class="prod__btns">
+                <a th:href="@{~/add/{id}(id=${product.id})}" class="btn btn--add">Add to cart</a>
+            </div>
         </div>
     </div>
 

@@ -2,7 +2,7 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 
-<div class="nav__wrapper" th:fragment="nav_menu(page)" id="nav_menu">
+<div class="nav__wrapper" th:fragment="nav_menu(page, cartAmount)" id="nav_menu">
 
     <div class="container">
         <nav class="nav">
@@ -35,7 +35,10 @@
                 </li>
 
                 <li class="nav__list-item"><a th:href="@{~/about}"th:class="${(page=='about')?'active nav\_\_link':'nav\_\_link'}">About</a></li>
-                <li class="nav__list-item"><a th:href="@{~/cart}"th:class="${(page=='cart')?'active nav\_\_link':'nav\_\_link'}">Cart</a></li>
+                <li class="nav__list-item nav__cart"><a th:href="@{~/cart}"th:class="${(page=='cart')?'active nav\_\_link':'nav\_\_link'}">
+                    Cart
+                    <span class="cart__amount" th:if="${cartAmount > 0}" th:text="${cartAmount}"></span>
+                </a></li>
 <!--                <li class="nav__list-item"><a th:href="@{~/login}"th:class="${(page=='login')?'active nav\_\_link':'nav\_\_link'}">Login</a></li>-->
 
 
@@ -46,6 +49,14 @@
 
 </div>
 
+<div th:fragment="banner">
+    <header class="banner">
+        <div class="banner__header">
+            <h1 class="banner__title header header--1">Tim & Jeffrey</h1>
+            <h3 class="banner__subtitle header header--3">Pet owners' store</h3>
+        </div>
+    </header>
+</div>
 
 <div class="container">
     <footer class="footer" th:fragment="footer">
