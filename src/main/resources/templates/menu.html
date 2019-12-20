@@ -34,6 +34,11 @@
                     </div>
                 </li>
 
+                <li class="nav__list-item">
+                    <a class="dropdown-item" href="/promo">promoPrice</a>
+                </li>
+
+
                 <li class="nav__list-item"><a th:href="@{~/about}"th:class="${(page=='about')?'active nav\_\_link':'nav\_\_link'}">About</a></li>
                 <li class="nav__list-item nav__cart"><a th:href="@{~/cart}"th:class="${(page=='cart')?'active nav\_\_link':'nav\_\_link'}">
                     Cart
@@ -62,6 +67,8 @@
     <footer class="footer" th:fragment="footer">
         <div class="container">
             <p>&copy; Tim&amp;Jeffrey</p>
+            <p> Met dank aan Departement Design & Technologie en de samenwerking met de VDAB</p>
+            <p> Auteurs Sabah Kaissoumi en Wouter Deloof</p>
         </div>
     </footer>
 
