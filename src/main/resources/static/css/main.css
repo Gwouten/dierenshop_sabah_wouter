@@ -17,6 +17,10 @@ html, body {
     font-size: 1.5rem;
 }
 
+.section {
+    margin: 2rem 0;
+}
+
 .container {
     width: 70%;
     max-width: 1200px;
@@ -29,6 +33,13 @@ html, body {
     border-left: 1px solid #555555;
 }
 
+/* Quotes */
+blockquote {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2rem;
+    transform: skew(-10deg);
+    margin-top: 0;
+}
 
 /* Navigation */
 .nav__wrapper {
@@ -67,6 +78,20 @@ html, body {
     text-transform: uppercase;
     font-size: 1.1rem;
     letter-spacing: 1px;
+}
+
+.cart__amount {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    background-color: red;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    transform: translateY(-10px);
+    font-size: .8rem;
 }
 
 /* Banner */
@@ -142,7 +167,10 @@ html, body {
 }
 
 .product--detail {
-
+    width: 100%;
+    border: none;
+    margin: 5rem 0;
+    align-items: flex-start;
 }
 
 .product:hover {
@@ -173,6 +201,10 @@ html, body {
     display: flex;
 }
 
+.product__row.product__row--description {
+    margin: 2rem 0;
+}
+
 .product__row.product__row--column {
     flex-direction: column;
 }
@@ -180,11 +212,20 @@ html, body {
 .product__row.product__row--center {
     justify-content: center;
 }
+.product__row.product__row--space-around {
+    justify-content: space-around;
+}
 
 .product__img {
     height: 200px;
     width: auto;
 }
+.product--detail .product__img {
+    width: 300px;
+    height: auto;
+    margin-right: 2rem;
+}
+
 .product__info {
     margin-top: 1rem;
 }
@@ -201,6 +242,11 @@ html, body {
     position: relative;
 }
 
+.product--detail .product__description {
+    width: 450px;
+    height: auto;
+}
+
 .product__description:after {
     content: "";
     position: absolute;
@@ -210,6 +256,10 @@ html, body {
     width: 100%;
     background: linear-gradient(to right, transparent, #fff);
     height: 25px;
+}
+
+.product--detail .product__description:after {
+    display: none;
 }
 
 .product__rating,
@@ -242,4 +292,9 @@ html, body {
 
 .btn--details:hover {
     background-color: #555555;
+}
+
+/* About */
+.about p {
+    max-width: 600px;
 }

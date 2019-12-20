@@ -5,59 +5,78 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 
     <link rel="stylesheet" th:href="@{~/css/main.css}">
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
 </head>
-    <body>
-    <div th:replace="~{menu::#nav_menu(about, ${cartAmount})}"></div>
+<body>
+<div th:replace="~{menu::#nav_menu(about, ${cartAmount})}"></div>
+
+<div class="section">
+    <div class="container">
+        <div class="about">
+            <h3 class="header header--2">Our philosophy:</h3>
+
+            <blockquote>A pet is for life. All life is vital.</blockquote>
+
+            <p>Come to Tim&Jeffrey in Brussels, for everything you could need for your pets. Whether you're mad for
+                mice,
+                crazy about cats, bonkers about bunnies or mesmerised about aquatic life, we stock everything you need
+                for
+                your favourite friends!</p>
+            <p>We stock it all, from nutritional food( including frozen dog food), bedding, housing and cages, to
+                collars,
+                leads, grooming products, hygiene health remedies, training products, feeding bowls, fish tanks, reptile
+                accessories and much more. If you love your pets, then you'll love Angel Pet Supplies. Come along and
+                visit
+                us today or call us to see what we have in stock. </p>
 
 
-         <h2>Our philosophy:   </h2>
-         "A pet is for life. All life is vital."
+            <h3 class="header header--3">Our concept:</h3>
+            <p>We believe that people that keep and care for animals have a duty to ensure the well- being of their
+                pets,
+                providing appropriate housing, nutrition and medical care as well as understanding the importance of
+                humane
+                treatment and handling.</p>
+            <p> We aim to provide the best service possible to first time and experienced pet owners alike. We try to
+                put
+                our customers in the right direction in terms of providing good nutritional food and housing.</p>
 
-         <p>  Come to Tim&Jeffrey in Brussels, for everything you could need for your pets
-             Whether you're mad for mice, crazy about cats, bonkers about bunnies or mesmerised about aquatic life, we stock everything you need for your favourite friends!</p>
+            <h3 class="header header--2"> Contact us</h3>
+            <p>Tim&Jeffrey Pet Supplies</p>
+            <h4 class="header header--4">Address</h4>
+            <p>
+                81 Chapel Market<br>
+                1000 Brussels<br>
+            <h4 class="header header--4">Email</h4>
+            <p>
+                Tim&Jeffreypetsupplies@hotmail.com
+            </p>
 
-         <p>We stock it all, from nutritional food( including frozen dog food), bedding, housing and cages, to collars, leads, grooming products, hygiene health remedies, training products, feeding bowls, fish tanks, reptile accessories and much more.
-             If you love your pets, then you'll love Angel Pet Supplies. Come along and visit us today or call us to see what we have in stock. </p>
+            <h4 class="header header--4">Phone</h4>
+            <p>020/7278150</p>
+        </div>
+    </div>
+</div>
 
-
-         <h3>Our concept:</h3>
-         <p>We believe that people that keep and care for animals have a duty to ensure the well- being of their pets, providing appropriate housing, nutrition and medical care as well as understanding the importance of humane treatment and handling.</p>
-
-         <p> We aim to provide the best service possible to  first time and experienced pet owners alike. We try to put our customers in the right direction in terms of providing good nutritional food and housing.</p>
-
-
-
-
-
-
-         <h2> Contact us</h2>
-
-         <p>Tim&Jeffrey Pet Supplies
-         <p>Address</p>
-         <p>81 Chapel Market</p>
-         <p>1000 Brussels</p>
-
-         <p>Email</p>
-         <p>Tim&Jeffreypetsupplies@hotmail.com</p>
-
-         <p>Phone</p>
-         <p>020/7278150</p>
-
-
-    </body>
 <div th:replace="~{menu::footer}">Copyright</div>
 
+</body>
 </html>
 
 

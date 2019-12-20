@@ -25,14 +25,14 @@
             <div class="product__row product__row--column">
                 <h3 class="header header--3 product__name" th:text="${product.name}"></h3>
                 <h3 class="header header--3 product__price" th:text="|€${product.price}|"></h3>
-                <p class="product__category" th:text="${product.category}"></p>
+                <p class="product__category" th:text="${product.category}|"></p>
             </div>
 
-            <div class="product__row product__row--center">
+            <div class="product__row product__row--description product__row--space-around">
                 <img class="product__img" th:src="${product.imgUrl}" th:alt="${product.name}">
+                <p class="product__description" th:text="${product.description}"></p>
             </div>
 
-            <p class="product__description" th:text="${product.description}"></p>
 
             <div class="product__info">
                 <h4 class="product__info__header header header--4">Info</h4>
@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <p class="product__animal" th:text="${product.animal}"></p>
+            <p class="product__animal" th:text="|Category: ${product.animal}"></p>
 
             <div class="prod__btns">
                 <a th:href="@{~/add/{id}(id=${product.id})}" class="btn btn--add">Add to cart</a>
