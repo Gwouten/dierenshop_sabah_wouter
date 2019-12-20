@@ -38,7 +38,8 @@
 
                 <div class="product__row product__row--column">
                     <h3 class="header header--3 product__name" th:text="${product.name}"></h3>
-                    <h3 class="header header--3 product__price" th:text="|€${product.price}|"></h3>
+                    <h3 class="header header--3 product__price" th:if="${product.promoPrice == 0}" th:text="|€${product.price}|"></h3>
+                    <h3 class="header header--3 product__price product__price--promo" th:if="${product.promoPrice != 0}" th:text="|€${product.promoPrice}|"></h3>
                     <p class="product__category" th:text="${product.category}"></p>
                 </div>
 
@@ -47,7 +48,6 @@
                 </div>
 
                 <p class="product__description" th:text="${product.description}"></p>
-                <p class="product__description" th:text="${product.promoPrice}"></p>
 
                 <div class="product__info">
                     <h4 class="product__info__header header header--4">Info</h4>
