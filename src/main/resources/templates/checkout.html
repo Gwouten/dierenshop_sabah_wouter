@@ -35,6 +35,12 @@
             </div>
 
             <div class="customerForm__input">
+                <label class="customerForm__label" for="city">City</label>
+                <input type="text" th:field="*{city}" id="city" >
+                <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="error"></span>
+            </div>
+
+            <div class="customerForm__input">
                 <label class="customerForm__label" for="postalcode">Postal Code</label>
                 <input type="text" th:field="*{postalcode}" id="postalcode" >
                 <span th:if="${#fields.hasErrors('postalcode')}" th:errors="*{postalcode}" class="error"></span>

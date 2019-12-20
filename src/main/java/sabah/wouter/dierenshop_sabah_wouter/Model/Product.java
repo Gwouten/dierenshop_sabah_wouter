@@ -8,6 +8,7 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 
+        // deze classe is aangemaakt om ons catalogus te laten zien; alle informatie komt hieruit
 @Entity
     public class Product {
         @Id
@@ -18,7 +19,7 @@ import java.math.BigDecimal;
         private String name;
 
         @NotNull
-        @DecimalMin(value = "0.50",message = "moet groter zijn dan 0.5")
+        @DecimalMin(value = "0.50",message = "Has to be bigger than 0.5")
         private BigDecimal price;
 
         @NotBlank
@@ -44,10 +45,24 @@ import java.math.BigDecimal;
         @NotBlank
         private String animal;
 
+        @NotNull
+        @DecimalMin(value = "0.50",message = "Has to be bigger than 0.5")
+        private BigDecimal promoPrice;
+
+
+
     public Product() {
     }
 
-    public String getAnimal() {
+            public BigDecimal getPromoPrice() {
+                return promoPrice;
+            }
+
+            public void setPromoPrice(BigDecimal promoPrice) {
+                this.promoPrice = promoPrice;
+            }
+
+            public String getAnimal() {
         return animal;
     }
 
