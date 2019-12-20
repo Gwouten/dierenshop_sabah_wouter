@@ -12,6 +12,7 @@ public class ConfirmationController {
 
     @RequestMapping(value = "/confirmation", method = RequestMethod.GET)
     public String showIn(ModelMap map) {
+        map.addAttribute("cartContent", ShoppingCart.INSTANCE.getCartContent());
         map.addAttribute("cartAmount", ShoppingCart.INSTANCE.getCartContent().size());
         map.addAttribute("customer", CustomerSingleton.INSTANCE.getCustomer());
         return "confirmation";

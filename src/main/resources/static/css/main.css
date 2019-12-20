@@ -78,6 +78,11 @@ blockquote {
     text-transform: uppercase;
     font-size: 1.1rem;
     letter-spacing: 1px;
+    transition: background-color .15s;
+}
+
+.nav .nav__link:hover {
+    background-color: #77cb2b;
 }
 
 .cart__amount {
@@ -195,6 +200,9 @@ blockquote {
 
 .product__price {
     margin: 0;
+}
+.product__price--promo {
+    color: red;
 }
 
 .product__row {
