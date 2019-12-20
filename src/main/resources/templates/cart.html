@@ -4,56 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 
     <link rel="stylesheet" th:href="@{~/css/main.css}">
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
 </head>
-    <body>
+<body>
 
-    <div th:replace="~{menu::#nav_menu(cart, ${cartAmount})}"></div>
+<div th:replace="~{menu::#nav_menu(cart, ${cartAmount})}"></div>
 
-        <div class="container">
-            <div class="cart__wrapper" th:if="${!cartContent.isEmpty()}">
-            <table class="cart">
+<div class="section">
+    <div class="container">
+        <div class="cart__wrapper" th:if="${!cartContent.isEmpty()}">
+            <table class="cart" id="cart">
                 <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Price</th>
-                        <th>Qty</th>
-                        <th>Total Price</th>
-                        <th></th>
-                    </tr>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total Price</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="cartItem : ${cartContent}">
-                        <td th:text="${cartItem.product.getName()}"></td>
-                        <td th:text="${cartItem.product.getPrice()}"></td>
-                        <td th:text="${cartItem.qty}"></td>
-                        <td th:text="|€${cartItem.product.getPrice() * cartItem.qty}|"></td>
-                        <td><a th:href="@{~/remove/{id}(id = ${cartItem.product.id})}">Remove</a></td>
-                    </tr>
+                <tr th:each="cartItem : ${cartContent}">
+                    <td th:text="${cartItem.product.getName()}"></td>
+                    <td th:text="${cartItem.product.getPrice()}"></td>
+                    <td th:text="${cartItem.qty}"></td>
+                    <td th:text="|€${cartItem.product.getPrice() * cartItem.qty}|"></td>
+                </tr>
                 </tbody>
             </table>
             <p class="cart-total" th:utext="|Cart total: €${cartTotal}|"></p>
 
             <a class="btn btn--details" th:href="@{~/checkout}">Go to checkout</a>
 
-            </div>
-
-            <p th:if="${cartContent.isEmpty()}">Cart is empty.</p>
         </div>
 
-        <div th:replace="~{menu::footer}">Copyright</div>
+        <p th:if="${cartContent.isEmpty()}">Cart is empty.</p>
+    </div>
+</div>
 
-    </body>
+<div th:replace="~{menu::footer}">Copyright</div>
+
+<script>
+    $(document).ready(function () {
+        $('#cart').DataTable({
+            "paging": false,
+            "searching": false,
+            "lengthChange": false
+        });
+    });
+</script>
+
+</body>
 
 
 </html>

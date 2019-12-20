@@ -298,3 +298,8 @@ blockquote {
 .about p {
     max-width: 600px;
 }
+
+/* Ductape solutions */
+#cart_info {
+    display: none;
+}

@@ -52,8 +52,11 @@
                 <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
             </div>
 
+            <div class="customer__input">
+                <label for="payment">Choose your payment method:</label>
+            </div>
+
             <div class="customerForm__input">
-                <label for="payment">Choose your payment method:</label><br>
                 <select name="payment" id="payment">
                     <option value="">Visa</option>
                     <option value="">Mastercard</option>
@@ -62,7 +65,7 @@
             </div>
 
             <div class="customerForm__input">
-                <input type="submit" th:value="#{submit}" class="btn">
+                <input type="submit" th:value="#{submit}" class="btn btn--details">
             </div>
         </form>
     </div>
